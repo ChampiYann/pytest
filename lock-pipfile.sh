@@ -9,6 +9,6 @@ if git status -s | grep Pipfile.lock ; then
     git add Pipfile.lock
     git commit -m "Lock Pipfile"
 fi
-if ["$pop" = true]; then
+if [ "$pop" = true ]; then
     git stash pop
 fi

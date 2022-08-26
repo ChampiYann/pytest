@@ -13,5 +13,6 @@ repos:
     entry: ./lock-pipfile.sh
     exclude: '.'
     always_run: true
+    verbose: true
     stages:
       - "push"

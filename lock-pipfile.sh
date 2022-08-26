@@ -1,14 +1,18 @@
 #!/bin/sh
-if git stash push ; then
-    pop=true
-else
-    pop=false
-fi
+# Create a random variable to mark the stash
+rand=$(date +%s)
+# Stash current state with a know, unique name
+git stash push -m "Lock Pipfile $rand"
+# Run pipenv lock
 pipenv lock
-if git status -s | grep Pipfile.lock ; then
+# Check is the file changed
+if git status -s | grep "Pipfile.lock" ; then
+# If it did add and commit it
     git add Pipfile.lock
     git commit -m "Lock Pipfile"
 fi
-if [ "$pop" = true ]; then
+# Check if there were any files stashed
+if git stash list | grep "Lock Pipfile $rand" ; then
+# If there were some, pop the stash
     git stash pop
 fi

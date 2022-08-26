@@ -1,0 +1,7 @@
+repos:
+- repo: local
+  hooks:
+  - id: lock-pipfile
+    name: Lock the Pipfile
+    language: system
+    entry: pipenv lock

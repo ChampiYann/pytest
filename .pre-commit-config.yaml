@@ -5,3 +5,5 @@ repos:
     name: Lock the Pipfile
     language: system
     entry: pipenv lock
+    exclude: '.'
+    always_run: true

@@ -1,12 +1,12 @@
 repos:
 - repo: local
   hooks:
-  - id: lock-pipfile
-    name: Lock the Pipfile
-    language: system
-    entry: pipenv lock
-    exclude: '.'
-    always_run: true
+  # - id: lock-pipfile
+  #   name: Lock the Pipfile
+  #   language: system
+  #   entry: pipenv lock
+  #   exclude: '.'
+  #   always_run: true
   - id: lock-pipfile-pre-push
     name: Lock the Pipfile before pushing
     language: script
